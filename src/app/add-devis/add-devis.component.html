@@ -1,0 +1,54 @@
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <form #devisForm="ngForm" (ngSubmit)="onSubmit(devisForm)">
+    <div>
+      <label for="reference">Référence du devis:</label>
+      <input id="reference" name="reference" [(ngModel)]="devis.reference" type="text" required />
+    </div>
+  
+    <div>
+      <label for="prospect">Client:</label>
+      <select id="prospect" name="prospect" [(ngModel)]="selectedProspect" required>
+        <option [ngValue]="null" disabled selected hidden>Sélectionner un client</option>
+        <option *ngFor="let prospect of prospects" [ngValue]="prospect">{{ prospect.name }}</option>
+      </select>
+    </div>
+    
+  
+    <div>
+      <label for="dateDevis">Date du devis:</label>
+      <input id="dateDevis" name="dateDevis" [(ngModel)]="devis.dateDevis" type="date" required />
+    </div>
+  
+    <div>
+      <label for="articles">Articles:</label>
+      <select id="articles" name="articles" [(ngModel)]="devis.articles" (change)="onArticlesChange()" multiple required>
+        <option *ngFor="let article of articles" [value]="article.reference">{{ article.designation }}</option>
+      </select>
+    </div>
+  
+    <div *ngFor="let articleDetail of devis.articleDetails; let i = index">
+      <div>
+        <label>Quantité pour {{ articleDetail.designation }}:</label>
+        <input name="quantite{{i}}" [(ngModel)]="articleDetail.quantity" type="number" required />
+        <span *ngIf="articleDetail.quantity > getStockQuantity(articleDetail.reference)">
+          Quantité en stock insuffisante !
+        </span>
+      </div>
+    
+      <div>
+        <label>Remise pour {{ articleDetail.designation }} (%):</label>
+        <input name="remise{{i}}" [(ngModel)]="articleDetail.remise" type="number" required min="0" max="100" />
+      </div>
+    </div>
+    
+  
+    <button type="submit">Ajouter le devis</button>
+  </form>
+
+  
+  
+
+
+  

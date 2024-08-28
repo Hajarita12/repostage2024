@@ -1,0 +1,149 @@
+<!-- Carte d'ajout d'article -->
+<div class="card">
+    <div class="card-header">
+      <h2>Ajouter un Article</h2>
+    </div>
+    <div class="card-body scrollable">
+      <form (ngSubmit)="onSubmit()" #articleForm="ngForm">
+        <div class="form-group">
+          <label for="reference">Référence:</label>
+          <input
+            type="text"
+            id="reference"
+            required
+            [(ngModel)]="article.reference"
+            name="reference"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="designation">Désignation:</label>
+          <input
+            type="text"
+            id="designation"
+            required
+            [(ngModel)]="article.designation"
+            name="designation"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="prixUnitaire">Prix Unitaire (DH):</label>
+          <input
+            type="number"
+            id="prixUnitaire"
+            required
+            [(ngModel)]="article.prixUnitaire"
+            name="prixUnitaire"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="prixAchat">Prix Achat (DH):</label>
+          <input
+            type="number"
+            id="prixAchat"
+            required
+            [(ngModel)]="article.prixAchat"
+            name="prixAchat"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="pvp">PVP (DH):</label>
+          <input
+            type="number"
+            id="pvp"
+            required
+            [(ngModel)]="article.pvp"
+            name="pvp"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="qteEnStock">Quantité en Stock:</label>
+          <input
+            type="number"
+            id="qteEnStock"
+            required
+            [(ngModel)]="article.qteEnStock"
+            name="qteEnStock"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="category">Catégorie:</label>
+          <select
+            id="category"
+            required
+            [(ngModel)]="categorieId"
+            name="category"
+            class="form-control"
+          >
+            <option value="" disabled selected>Sélectionnez une catégorie</option>
+            <option
+              *ngFor="let category of categories"
+              [value]="category.id"
+              >{{ category.name }}</option
+            >
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="image">Image</label>
+          <input
+            type="file"
+            id="image"
+            (change)="onFileSelected($event)"
+            class="form-control"
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="onCancel()"
+          >Annuler</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="articleForm.invalid"
+          >Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div
+    class="modal fade"
+    id="successModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="successModalLabel"
+    aria-hidden="true"
+    [ngClass]="{'show': showModal}"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Succès!</h5>
+          <button
+            type="button"
+            class="close"
+            (click)="hideModal()"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">L'article a été ajouté avec succès.</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="hideModal()"
+          >Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,82 @@
+<div class="validation-devis">
+  <h2>Liste des Devis</h2>
+  <div class="search-container">
+    <i class="fas fa-search search-icon"></i>
+    <input 
+      type="text" 
+      placeholder="Rechercher par état ou date..." 
+      class="search-input" 
+      [(ngModel)]="searchText" 
+    />
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Référence</th>
+        <th>Client</th>
+        <th>Date</th>
+        <th>Montant</th>
+        <th>État</th>
+        <th>Actions</th>
+        <th>Commercial</th>
+        <th>Télécharger / Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let devis of filteredDevis">
+        <td>{{ devis.reference }}</td>
+        <td>{{ devis.prospect.name }}</td>
+        <td>{{ devis.dateDevis }}</td>
+        <td><strong>{{ devis.montantTotal }} DH</strong></td>
+        <td>
+          <span *ngIf="devis.etat === 'En attente'">
+            <i class="fa fa-toggle-off text-muted"></i> En attente
+          </span>
+          <span *ngIf="devis.etat === 'Validé'">
+            <i class="fa fa-toggle-on text-success"></i> Validé
+          </span>
+          <span *ngIf="devis.etat === 'Annulé'">
+            <i class="fa fa-toggle-off text-danger"></i> Annulé
+          </span>
+        </td>
+        <td>
+          <div class="toggle-buttons">
+            <div>
+              <span class="state-label">En attente</span>
+              <button class="toggle-button"
+                      [class.active]="devis.etat === 'En attente'"
+                      (click)="toggleDevisState(devis, 'En attente')">
+              </button>
+            </div>
+            <div>
+              <span class="state-label">Validé</span>
+              <button class="toggle-button"
+                      [class.active]="devis.etat === 'Validé'"
+                      (click)="toggleDevisState(devis, 'Validé')">
+              </button>
+            </div>
+            <div>
+              <span class="state-label">Annulé</span>
+              <button class="toggle-button"
+                      [class.active]="devis.etat === 'Annulé'"
+                      (click)="toggleDevisState(devis, 'Annulé')">
+              </button>
+            </div>
+          </div>
+        </td>
+        <td>{{ devis.commercial.username }}</td>
+        <td>
+          <div class="d-flex flex-column align-items-center">
+            <ng-container *ngIf="devis.etat === 'Validé' || devis.etat === 'Annulé'">
+              <i class="fa fa-pencil action-icon-edit mb-1" aria-hidden="true" (click)="editDevis(devis)" title="Modifier"></i>
+              <span class="action-label mb-1"></span>
+              <i class="fas fa-trash action-icon-delete mt-1" aria-hidden="true" (click)="deleteDevis(devis)" title="Supprimer"></i>
+              <span class="action-label mt-1"></span>
+            </ng-container>
+            <button class="btn mt-2" (click)="generatePDF(devis)"><i class="fas fa-download" aria-hidden="true"></i> Télécharger</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

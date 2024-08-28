@@ -1,0 +1,129 @@
+<!-- Carte d'édition d'article -->
+<div class="card">
+  <div class="card-header">
+    <h2>Modifier un Article</h2>
+  </div>
+  <div class="card-body scrollable">
+    <form (ngSubmit)="saveArticle()" #articleForm="ngForm">
+      <div class="form-group">
+        <label for="reference">Référence</label>
+        <input
+          type="text"
+          class="form-control"
+          id="reference"
+          [(ngModel)]="article.reference"
+          name="reference"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="designation">Désignation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="designation"
+          [(ngModel)]="article.designation"
+          name="designation"
+        />
+      </div>
+      <div class="form-group">
+        <label for="prixUnitaire">Prix Unitaire</label>
+        <input
+          type="number"
+          class="form-control"
+          id="prixUnitaire"
+          [(ngModel)]="article.prixUnitaire"
+          name="prixUnitaire"
+        />
+      </div>
+      <div class="form-group">
+        <label for="prixAchat">Prix Achat</label>
+        <input
+          type="number"
+          class="form-control"
+          id="prixAchat"
+          [(ngModel)]="article.prixAchat"
+          name="prixAchat"
+        />
+      </div>
+      <div class="form-group">
+        <label for="pvp">PVP</label>
+        <input
+          type="number"
+          class="form-control"
+          id="pvp"
+          [(ngModel)]="article.pvp"
+          name="pvp"
+        />
+      </div>
+      <div class="form-group">
+        <label for="qteEnStock">Quantité en Stock</label>
+        <input
+          type="number"
+          class="form-control"
+          id="qteEnStock"
+          [(ngModel)]="article.qteEnStock"
+          name="qteEnStock"
+        />
+      </div>
+      <div class="form-group">
+        <label for="category">Catégorie</label>
+        <select
+          id="category"
+          required
+          [(ngModel)]="categorieId"
+          name="category"
+          class="form-control"
+        >
+          <option value="" disabled>Sélectionnez une catégorie</option>
+          <option
+            *ngFor="let category of categories"
+            [value]="category.id"
+            >{{ category.name }}</option
+          >
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="qteCommandee">Quantité Commandée</label>
+        <input
+          type="number"
+          class="form-control"
+          id="qteCommandee"
+          [(ngModel)]="article.qteCommandee"
+          name="qteCommandee"
+        />
+      </div>
+      <div class="form-group">
+        <label for="qteReservee">Quantité Réservée</label>
+        <input
+          type="number"
+          class="form-control"
+          id="qteReservee"
+          [(ngModel)]="article.qteReservee"
+          name="qteReservee"
+        />
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input
+          type="file"
+          id="image"
+          (change)="onFileSelected($event)"
+          class="form-control"
+        />
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="close()"
+        >Annuler</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="articleForm.invalid"
+        >Sauvegarder</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.performance-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fcf0fc; /* Couleur mauve clair pour le conteneur */
+
+  }
+  
+  .performance-container h2 {
+    color: #5a4b6b;
+    margin-bottom: 20px;
+  }
+  
+  #performance-chart {
+    width: 100%;
+    height: 400px; /* Assurez-vous que la hauteur est suffisante */
+  }
+  

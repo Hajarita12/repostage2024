@@ -1,0 +1,129 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: rgb(68, 4, 71);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+main {
+    padding: 50px 0;
+    background-color: #f5f5f5;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intro h2 {
+    font-size: 2em;
+    color: rgb(68, 4, 71);
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.spaces {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.space {
+    background-color: #fff;
+    border: 2px solid rgb(68, 4, 71);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.1s ease;
+}
+
+.space:hover {
+    transform: translateY(-5px);
+}
+
+.space h3 {
+    color: rgb(68, 4, 71);
+    margin-bottom: 15px;
+}
+
+.space p {
+    color: #555;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgb(68, 4, 71);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #430348;
+}
+
+footer {
+    background-color: rgb(68, 4, 71);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .spaces {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}

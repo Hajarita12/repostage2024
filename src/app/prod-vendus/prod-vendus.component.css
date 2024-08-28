@@ -1,0 +1,76 @@
+/* dashboard.component.css */
+
+/* Conteneur du graphique */
+.chart-container {
+    position: relative;
+    width: 80%; /* Largeur du conteneur */
+    height: 500px; /* Hauteur du graphique */
+    margin: auto; /* Centrer le graphique */
+    padding: 20px; /* Padding autour du graphique */
+    background-color: #ffffff; /* Couleur de fond blanche pour un contraste clair */
+    border-radius: 12px; /* Coins arrondis pour un look moderne */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Ombre légère pour profondeur */
+    border: 1px solid #e0e0e0; /* Bordure fine et élégante */
+    overflow: hidden; /* Pour gérer les dépassements */
+}
+
+/* Style du graphique */
+canvas {
+    display: block;
+    height: 100% !important; /* Hauteur complète du conteneur */
+    width: 100% !important; /* Largeur complète du conteneur */
+    border-radius: 8px; /* Coins arrondis pour le canvas */
+}
+
+/* Animation des points du graphique */
+.chartjs-point {
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transition fluide */
+}
+
+/* Effet au survol des points du graphique */
+.chartjs-point:hover {
+    transform: scale(1.4); /* Agrandit les points au survol */
+    box-shadow: 0 9px 16px rgba(106, 27, 154, 0.6); /* Ombre plus prononcée au survol */
+}
+
+/* Style pour les tooltips */
+.chartjs-tooltip {
+    background-color: #333; /* Fond sombre pour les tooltips */
+    color: #fff; /* Texte blanc pour contraste */
+    border-radius: 6px; /* Coins arrondis pour le tooltip */
+    padding: 10px; /* Padding pour aérer le texte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre légère pour effet de profondeur */
+    font-size: 14px; /* Taille de police du tooltip */
+}
+
+/* Style pour les légendes */
+.chartjs-legend {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux légendes de s'enrouler */
+    justify-content: center; /* Centre les légendes horizontalement */
+    margin-top: 20px; /* Marge au-dessus de la légende */
+    font-size: 14px; /* Taille de la police des légendes */
+}
+
+.chartjs-legend li {
+    margin: 0 15px; /* Espace entre les éléments de légende */
+    list-style: none; /* Retirer les puces */
+    display: flex;
+    align-items: center; /* Aligner verticalement */
+}
+
+.chartjs-legend li span {
+    border-radius: 50%; /* Arrondir les puces */
+    width: 16px; /* Taille des puces */
+    height: 16px; /* Taille des puces */
+    display: inline-block;
+    margin-right: 10px; /* Espace entre la puce et le texte */
+    background-color: #6a1b9a; /* Couleur de la puce */
+}
+
+/* Style pour les lignes du graphique */
+.chart-line {
+    border-width: 4px; /* Épaisseur des lignes du graphique */
+    border-color: #6a1b9a; /* Couleur des lignes */
+    box-shadow: 0 4px 8px rgba(106, 27, 154, 0.2); /* Ombre légère pour profondeur */
+}

@@ -1,0 +1,86 @@
+/* Colors */
+:root {
+  --green-seaweed: rgba(2, 128, 144, 1);
+  --blue-queen: rgba(69, 105, 144, 1);
+  --red-fire: rgba(244, 91, 105, 1);
+}
+
+body {
+  background: rgb(68, 4, 71);
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.main {
+  background-color: rgb(217, 173, 209);
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+  position: relative;
+}
+
+.sign {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--green-seaweed);
+}
+
+.form1 input {
+  font-family: 'Asap', sans-serif;
+  display: block;
+  border-radius: 5px;
+  font-size: 16px;
+  background: white;
+  width: 100%;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px 0;
+  box-sizing: border-box;
+}
+
+.form1 .submit {
+  font-family: 'Asap', sans-serif;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  width: 100%;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: var(--red-fire);
+  transition: background-color 300ms;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+}
+
+.form1 .submit:hover {
+  background-color: rgba(182, 109, 209, 0.8);
+}
+
+.forgot {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forgot a {
+  text-decoration: none;
+  color: var(--blue-queen);
+}
+
+@keyframes waves {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

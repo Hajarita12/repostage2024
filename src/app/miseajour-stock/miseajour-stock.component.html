@@ -1,0 +1,10 @@
+<div class="update-stock-container">
+  <h2>Mise à jour du stock</h2>
+  
+  <div class="upload-section">
+    <input type="file" (change)="onFileSelected($event)" accept=".xlsx, .xls" />
+    <button (click)="uploadFile()" [disabled]="!selectedFile">Upload</button>
+  </div>
+
+ 
+</div>

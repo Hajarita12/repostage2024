@@ -1,0 +1,262 @@
+ /* Conteneur principal pour le CRUD des articles */
+ .crud-container {
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+  }
+  .circular-image {
+    max-width: 400px; /* Ajustez en fonction de vos besoins */
+    max-height: 400px;
+     border-radius: 50%; /* Crée un effet de cercle */
+     object-fit: cover; /* Couvre le conteneur sans déformation */
+   }
+  /* Champ de recherche */
+  .search-container {
+    position: relative;
+    width: 100%;
+    max-width: 940px; /* Ajuste selon la largeur désirée */
+    margin: 0 auto; /* Centrer le conteneur */
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 12px 12px 12px 40px; /* Ajoute de l'espace pour l'icône à gauche */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .search-input:focus {
+    border-color: #5a4b6b;
+    box-shadow: 0 0 8px rgba(90, 75, 107, 0.3);
+    outline: none;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 35%;
+    left: 12px; /* Ajuste selon le padding de l'input */
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #5a4b6b;
+  }
+  
+  /* Conteneur des cartes */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  /* Style des cartes */
+  .card {
+    background-color: #edd0ef;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Effet au survol de la carte */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    background-color: #e9c8ec;
+  }
+  
+  /* Image de la carte */
+  .card-img-top {
+    width: 190px; /* Largeur de l'image */
+    height: 180px; /* Hauteur de l'image */
+    object-fit: cover; /* Assure que l'image couvre toute la zone sans déformation */
+    border-radius: 50%; /* Rendre l'image circulaire */
+    margin-bottom: 10px; /* Espacement entre l'image et le contenu de la carte */
+  }
+  
+  /* Contenu de la carte */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Titre de la carte */
+  .card-title {
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Texte de la carte */
+  .card-text {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 15px;
+  }
+  
+  /* Actions de la carte */
+  .card-actions {
+    display: flex; /* Utiliser Flexbox pour aligner les boutons sur la même ligne */
+    justify-content: center; /* Centrer les boutons horizontalement */
+    gap: 10px; /* Espace entre les boutons */
+  }
+  
+  /* Boutons d'action (édition, suppression) */
+  .edit-button, .view-details-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: #0f8245;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: #930a0a;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  /* Bouton Voir les détails */
+  .view-details-button {
+    background-color: #c68eca; /* Mauve */
+    color: white;
+    padding: 10px 20px;
+    font-size: 15px;
+    margin: 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Effets de survol */
+  .edit-button:hover {
+    color: #0f8245;
+    transform: scale(1.2);
+  }
+  .delete-button:hover {
+    color: #930a0a;
+    transform: scale(1.2);
+  }
+  
+  .view-details-button:hover {
+    background-color: #b56dba; /* Teinte plus sombre de mauve */
+    transform: scale(1.1);
+  
+  }
+  .circular-image {
+    max-width: 150px; /* Ajustez en fonction de vos besoins */
+    max-height: 150px;
+     border-radius: 50%; /* Crée un effet de cercle */
+     object-fit: cover; /* Couvre le conteneur sans déformation */
+   }
+  /* Carte Ajouter Article */
+  .add-category-card {
+    background-color: #edd0ef;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin: 0 auto; /* Centrer horizontalement */
+  }
+  
+  /* Effet au survol de la carte Ajouter Article */
+  .add-category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    background-color: #e9c8ec;
+  }
+  
+  /* Icône d'ajout */
+  .add-icon {
+    font-size: 50px;
+    color: #5a4b6b;
+    margin-bottom: 10px;
+  }
+  
+  /* Style général du modal */
+  .modal-dialog {
+    max-width: 600px; /* Ajuste la largeur du modal */
+    margin: 1.75rem auto; /* Centre le modal verticalement */
+  }
+  
+  .modal-content {
+    border-radius: 12px; /* Coins arrondis pour le contenu du modal */
+    background-color: #f9f9f9; /* Couleur de fond du modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère pour le modal */
+    padding: 20px; /* Espacement intérieur du modal */
+  }
+  .bold-text {
+    font-weight: 600; /* Ajustez la valeur selon le degré de gras souhaité */
+    font-size: 14px; /* Ajustez la taille de la police si nécessaire */
+  }
+  
+  
+  
+  .modal-header {
+    border-bottom: 1px solid #ddd; /* Ligne de séparation */
+    background-color: #d8bfd8; /* Couleur de fond pour l'en-tête */
+    color: white; /* Couleur du texte */
+    padding: 15px; /* Espacement intérieur de l'en-tête */
+  }
+  
+  .modal-title {
+    font-size: 24px; /* Taille du texte du titre */
+    font-weight: bold; /* Poids du texte du titre */
+  }
+  
+  .modal-header .close {
+    color: white; /* Couleur du bouton de fermeture */
+    font-size: 1.5rem; /* Taille du bouton de fermeture */
+  }
+  
+  .modal-body {
+    padding: 20px; /* Espacement intérieur du corps du modal */
+    font-size: 18px; /* Taille de la police */
+  }
+  
+  
+  
+  .modal-footer {
+    border-top: 1px solid #ddd; /* Ligne de séparation */
+    padding: 15px; /* Espacement intérieur du pied de page */
+    text-align: right; /* Aligne le contenu du pied de page à droite */
+  }
+  
+  .modal-footer .btn {
+    background-color: #d8bfd8; /* Couleur de fond pour les boutons */
+    color: white; /* Couleur du texte des boutons */
+    border: none; /* Supprime les bordures des boutons */
+    border-radius: 8px; /* Coins arrondis pour les boutons */
+    padding: 10px 20px; /* Espacement intérieur des boutons */
+    font-size: 16px; /* Taille de la police des boutons */
+    transition: background-color 0.3s ease; /* Transition pour la couleur de fond */
+  }
+  
+  .modal-footer .btn:hover {
+    background-color: #b56dba; /* Couleur de fond au survol des boutons */
+  }

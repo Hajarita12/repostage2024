@@ -1,0 +1,33 @@
+<div mat-dialog-content>
+    <h2><i class="fas fa-info-circle action-icon text-info" style="font-size: 38px;"></i>
+
+        <br/> Détails du Devis</h2>
+    
+
+    <div *ngIf="data.devisarticles.length > 0">
+        <h3>Détails des Articles du Devis</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Désignation</th>
+                    <th>Quantité</th>
+                    <th>Remise (%)</th>
+                    <th>Prix Unitaire</th>
+                    <th>Total (Hors taxe)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let article of data.devisarticles">
+                    <td>{{ article.article.designation }}</td>
+                    <td>{{ article.quantite }}</td>
+                    <td>{{ article.remise }}</td>
+                    <td>{{ article.article.prixUnitaire.toFixed(2) }} DH</td>
+                    <td>{{ (article.quantite * article.article.prixUnitaire * (1 - article.remise / 100)).toFixed(2) }} DH</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Fermer</button>
+</div>

@@ -1,0 +1,112 @@
+/* Style global pour le dialogue */
+.dialog-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto; /* Centrer le dialogue */
+  max-height: 90vh; /* Hauteur maximale du dialogue pour permettre le scroll */
+  overflow-y: auto; /* Activer le scroll vertical */
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card {
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 90vh; /* Hauteur maximale de la carte */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  background-color: #d8bfd8; /* Mauve plus foncé */
+  color: white;
+  border-bottom: none;
+  padding: 10px;
+  border-radius: 20px 20px 0 0; /* Arrondi des côtés en haut */
+  text-align: center;
+}
+.card-header h2{
+  color : white;
+}
+.card-body {
+  padding: 20px;
+  flex: 1; /* Permettre au corps de la carte de prendre l'espace restant */
+  overflow-y: auto; /* Activer le scroll vertical pour le contenu du corps */
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: #e9e4e8;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+  margin-top: 15px;
+}
+
+.product-name {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #5a4b6b;
+  margin-bottom: 10px;
+}
+
+.product-quantity {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px; 
+}
+
+/* Styles pour le bouton de fermeture */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-secondary {
+  background-color: #b56dba; 
+}
+
+.btn-secondary:hover {
+  background-color: #c2a2c2;
+
+}

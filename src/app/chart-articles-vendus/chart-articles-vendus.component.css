@@ -1,0 +1,17 @@
+/* Style pour le conteneur du graphique */
+.chart-container {
+    display: block;
+    width: 100%;
+    height: 400px;
+    background-color: #fcf0fc; /* Couleur mauve clair pour le conteneur */
+    border-radius: 8px; /* Bords arrondis pour un aspect moderne */
+    padding: 10px; /* Espacement intérieur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour donner du relief */
+  }
+  
+  /* Style pour le canvas du graphique */
+  #chartCanvas {
+    width: 100%; /* Assure que le canvas occupe toute la largeur du conteneur */
+    height: 100%; /* Assure que le canvas occupe toute la hauteur du conteneur */
+  }
+  

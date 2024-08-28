@@ -1,0 +1,128 @@
+.container {
+  position: relative;
+  left: 30px; /* Ajustez cette valeur pour pousser le conteneur vers la droite */
+  width: 850px;
+}
+
+.add-prospect-card {
+  cursor: pointer;
+  background-color: #e3c7ef; /* Mauve claire */
+  color: white;
+  border-radius: 0.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 250px; /* Ajustez la largeur selon vos préférences */
+}
+
+.add-prospect-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-prospect-card .card-body {
+  color: #333; /* Couleur de texte plus foncée pour contraste */
+}
+.card-title{
+  font-size: 14px;
+}
+.d-flex.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+.action-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+  text-align: center;
+}
+
+.action-icon:hover {
+  color: #8111b0;
+  transform: scale(1.4); /* Agrandir l'icône lors du survol */
+}
+
+.table tbody tr td {
+  vertical-align: middle; /* Centre verticalement le contenu */
+}
+
+/* Styles pour le tableau */
+.table-container {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; /* Couleur de fond douce pour le conteneur du tableau */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Bordure légère pour les lignes */
+}
+
+.table th {
+  background-color: #d8bfd8; /* Couleur de fond pour les en-têtes */
+  color: white;
+  font-weight: bold;
+}
+
+.table tr {
+  background-color: white; /* Couleur de fond pour les lignes paires */
+}
+
+.table tr:hover {
+  background-color: #ece0f2; /* Couleur de fond pour survoler les lignes */
+}
+
+.table .btn-action {
+  background-color: #a78be0; /* Couleur des boutons d'action */
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.table .btn-action:hover {
+  background-color: #7a5bbf; /* Couleur de survol des boutons d'action */
+}
+
+/* Styles pour les lignes des prospects désactivés */
+.inactive-row {
+  background-color: #f8f9fa; /* Couleur de fond plus pâle */
+  color: #6c757d; /* Couleur du texte plus clair */
+  opacity: 0.7; /* Rendre la ligne moins opaque pour l'effet désactivé */
+}
+
+.inactive-row td {
+  cursor: not-allowed; /* Changer le curseur pour indiquer que la ligne est désactivée */
+}
+
+/* Styles supplémentaires pour les actions désactivées si nécessaire */
+.inactive-row .btn {
+  pointer-events: none; /* Désactiver les clics sur les boutons */
+  opacity: 0.5; /* Rendre les boutons moins visibles */
+}
+
+.prospect-valide:hover .info-bulle,
+.prospect-annule:hover .info-bulle {
+  display: block; /* Show message on hover */
+}
+
+.prospect-valide, .prospect-annule {
+  position: relative; /* Ensure relative positioning for absolute positioned elements inside */
+  opacity: 0.6; /* Reduced opacity for validated or cancelled quotes */
+}

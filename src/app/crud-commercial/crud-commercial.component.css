@@ -1,0 +1,110 @@
+
+.container {
+    position: relative;
+    left: 30px; /* Ajustez cette valeur pour pousser le conteneur vers la droite */
+    width: 750px;
+}
+
+.add-commercial-card {
+    cursor: pointer;
+    background-color: #e3c7ef; /* Mauve claire */
+    color: white;
+    border-radius: 0.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 250px; /* Ajustez la largeur selon vos préférences */
+}
+
+.add-commercial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-commercial-card .card-body {
+    color: #333; /* Couleur de texte plus foncée pour contraste */
+}
+
+.d-flex.justify-content-center {
+    display: flex;
+    justify-content: center;
+}
+
+
+.circular-image {
+ max-width: 150px; /* Ajustez en fonction de vos besoins */
+ max-height: 150px;
+  border-radius: 50%; /* Crée un effet de cercle */
+  object-fit: cover; /* Couvre le conteneur sans déformation */
+}
+.card-title{
+  font-size: 14px;
+}
+.action-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+.action-icon:hover {
+    color: #8111b0;
+    transform: scale(1.4); /* Agrandir l'icône lors du survol */
+}
+
+.table tbody tr td {
+    vertical-align: middle; /* Centre verticalement le contenu */
+}
+/* Styles pour le tableau */
+.table-container {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Couleur de fond douce pour le conteneur du tableau */
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Bordure légère pour les lignes */
+  }
+  
+  .table th {
+    background-color: #d8bfd8; /* Couleur de fond pour les en-têtes */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table tr {
+    background-color: white; /* Couleur de fond pour les lignes paires */
+  }
+  
+  .table tr:hover {
+    background-color: #ece0f2; /* Couleur de fond pour survoler les lignes */
+  }
+  
+  .table .btn-action {
+    background-color: #a78be0; /* Couleur des boutons d'action */
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .table .btn-action:hover {
+    background-color: #7a5bbf; /* Couleur de survol des boutons d'action */
+  }
+  

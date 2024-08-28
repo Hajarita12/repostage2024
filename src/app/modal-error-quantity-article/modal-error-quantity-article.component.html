@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h2 style="font-size: 26px;"><i class="fas fa-exclamation-triangle" style="font-size: 35px;" ></i>Rupture de stock</h2> 
+</div>
+<div mat-dialog-content>
+  <p>La quantité demandée pour l'article <strong>{{data.article}}</strong> n'est pas disponible en stock.</p>
+  <p>Quantité demandée: <strong>{{data.quantite}}</strong></p>
+  <p>Quantité disponible: <strong>{{data.qteEnstock}}</strong></p>
+  <p>Il est impossible d'ajouter ce devis.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">OK</button>
+</div>

@@ -1,0 +1,51 @@
+.container {
+    width: 700px;
+    height: 500px;
+    margin: -70px auto 50px auto; /* Marge négative pour monter plus haut */
+    padding: 20px;
+    background-color: #efdeef;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #4f0a4f; /* Mauve */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    color: #4f0a4f; /* Mauve */
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form-control:focus {
+    border-color: #800080; /* Mauve */
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+  }
+  
+  .btn-primary {
+    background-color: #7c3da1; /* Mauve */
+    border-color: #704a70; /* Mauve */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #67148d; /* Plus foncé pour l'effet hover */
+    border-color: #660066; /* Plus foncé pour l'effet hover */
+  }
+  

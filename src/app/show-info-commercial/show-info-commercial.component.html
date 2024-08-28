@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Profil Commercial</h2>
+    <div>
+      <p><strong>ID:</strong> {{ commercial.id }}</p>
+      <p><strong>Username:</strong> {{ commercial.username }}</p>
+      <p><strong>Email:</strong> {{ commercial.email }}</p>
+      <div *ngIf="commercial.image">
+        <p><strong>Image:</strong></p>
+        <img [src]="commercial.image" alt="Commercial Image" style="max-width: 300px; max-height: 300px;">
+      </div>
+      <div *ngIf="!commercial.image">
+        <p><strong>Image:</strong> Aucune image disponible</p>
+      </div>
+    </div>
+  </div>
+  

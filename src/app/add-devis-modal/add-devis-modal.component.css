@@ -1,0 +1,104 @@
+.card {
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px;
+}
+
+.card-header {
+  background-color: #d8bfd8;
+  color: white;
+  border-bottom: none;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+  max-height: 500px; /* Limite la hauteur du contenu pour le défilement */
+  overflow-y: auto; /* Ajoute un défilement vertical si le contenu dépasse la hauteur */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-container label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+}
+
+.checkbox-container label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d8bfd8;
+  border-radius: 4px;
+  background: #fff;
+  transition: background 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked + label:before {
+  background: #4CAF50; /* Change background to green when checked */
+  border-color: #4CAF50; /* Change border color to green when checked */
+}
+
+.checkbox-container input[type="checkbox"]:checked + label:after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.modal-footer {
+  padding: 10px;
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: #9370db;
+  border-color: #9370db;
+}
+
+.btn-primary:hover {
+  background-color: #7a5bbf;
+  border-color: #7a5bbf;
+}
+
+.form-control:focus {
+  border-color: #9370db;
+  box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.text-danger {
+  color: #dc3545;
+}

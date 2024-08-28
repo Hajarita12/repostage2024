@@ -1,0 +1,59 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="card">
+  <div class="card-header">
+    <h2>Ajouter un Devis</h2>
+  </div>
+  <div class="card-body">
+    <form #devisForm="ngForm" (ngSubmit)="onSubmit(devisForm)">
+      <div class="form-group">
+        <label for="reference">Référence du devis:</label>
+        <input id="reference" name="reference" [(ngModel)]="devis.reference" type="text" class="form-control" required />
+      </div>
+    
+      <div class="form-group">
+        <label for="prospect">Client:</label>
+        <select id="prospect" name="prospect" [(ngModel)]="selectedProspect" class="form-control" required>
+          <option [ngValue]="null" disabled selected hidden>Sélectionner un client</option>
+          <option *ngFor="let prospect of prospects" [ngValue]="prospect">{{ prospect.name }}</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="dateDevis">Date du devis:</label>
+        <input id="dateDevis" name="dateDevis" [(ngModel)]="devis.dateDevis" type="date" class="form-control" required />
+      </div>
+    
+      <div class="form-group">
+        <label for="articles">Articles:</label>
+        <div *ngFor="let article of articles" class="checkbox-container">
+          <input type="checkbox" [value]="article.reference" (change)="onArticleCheckboxChange($event, article)" id="checkbox-{{article.reference}}">
+          <label for="checkbox-{{article.reference}}">{{ article.designation }}</label>
+        </div>
+      </div>
+      
+      <div *ngFor="let articleDetail of devis.articleDetails; let i = index">
+        <div class="form-group">
+          <label>Quantité pour {{ articleDetail.designation }}:</label>
+          <input name="quantite{{i}}" [(ngModel)]="articleDetail.quantity" type="number" class="form-control" required />
+          <span *ngIf="articleDetail.quantity > getStockQuantity(articleDetail.reference)" class="text-danger">
+            Quantité en stock insuffisante !
+          </span>
+        </div>
+      
+        <div class="form-group">
+          <label>Remise pour {{ articleDetail.designation }} (%):</label>
+          <input name="remise{{i}}" [(ngModel)]="articleDetail.remise" type="number" class="form-control" required min="0" max="100" />
+        </div>
+      </div>
+      
+      <br/>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+        <button type="submit" class="btn btn-primary" [disabled]="devisForm.invalid">
+          Ajouter
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

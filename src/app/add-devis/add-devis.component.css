@@ -1,0 +1,155 @@
+form {
+    width: 700px;
+    margin: 40px auto 0;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 98%);
+  }
+  
+  form div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  select[multiple] {
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    overflow-y: auto;
+  }
+  
+  select[multiple] option {
+    padding: 10px;
+    margin: 2px 0;
+    cursor: pointer;
+  }
+  
+  select[multiple] option:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    background-color: #9941a1;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  button:hover {
+    background-color: #cc6dbe;
+  }
+  
+  mat-dialog-content p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  mat-dialog-actions {
+    justify-content: flex-end;
+  }
+  input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  /* Styling du calendrier lorsque le calendrier est ouvert */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #9941a1; /* Couleur de l'icône */
+    font-size: 24px; /* Taille de l'icône */
+    cursor: pointer; /* Curseur au survol */
+    /* Autres styles si nécessaire */
+  }
+  
+  .mat-dialog-container {
+    animation: fadeIn 0.5s ease-in-out;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: hsl(0, 0%, 98%);
+  }
+  
+  .mat-dialog-title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #9941a1;
+  }
+  
+  .mat-dialog-title i {
+    margin-right: 10px;
+    animation: bounceIn 1s;
+    font-size: 30px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0%,
+    20%,
+    40%,
+    60%,
+    80%,
+    100% {
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+      transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+    
+  }
+  

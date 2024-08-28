@@ -1,0 +1,82 @@
+<div class="crud-container">
+  <div class="search-container">
+    <i class="fas fa-search search-icon"></i>
+    <input 
+      type="text" 
+      placeholder="Rechercher un article..." 
+      class="search-input" 
+      [(ngModel)]="searchText" 
+    />
+  </div>
+  
+  <div class="card add-category-card" (click)="openAddArticleModal()">
+    <div class="card-content">
+      <!-- Icône d'ajout grande et centrée -->
+      <i class="fa fa-plus-circle add-icon" aria-hidden="true"></i>
+      <span class="card-title">Ajouter Article</span>
+    </div>
+  </div>
+  
+  <br/>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let article of filteredArticles">
+      <span class="card-title">{{ article.designation }}</span>
+      <img [src]="getImageData(article)" class="circular-image" alt="{{article.designation}}">
+      <div class="card-content">
+        <br/>
+        <p class="card-text">Catégorie: {{ article.categorie.name }}</p>
+        <div class="card-actions">
+          <button class="edit-button" (click)="editArticle(article)">
+            <i class="fa fa-pencil" ></i>
+          </button>
+          <button class="delete-button" (click)="deleteArticle(article)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+        <br/>
+        <button class="view-details-button" (click)="showArticleDetails(article)"><i class="fa fa-info-circle" aria-hidden="true"></i>
+
+           Détails
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal pour afficher les détails d'un article -->
+<ng-template #detailsModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Détails de l'article</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="selectedArticle" >
+      <img [src]="getImageData(selectedArticle)" alt="Article Image" class="img-fluid mb-3 mx-auto d-block" style="max-width: 60%;">
+      <p><span class="bold-text">Reference:</span> {{ selectedArticle.reference }}</p>
+      <p><span class="bold-text">Designation:</span> {{ selectedArticle.designation }}</p>
+      <p><span class="bold-text">Prix Unitaire:</span> {{ selectedArticle.prixUnitaire }} DH</p>
+      <p><span class="bold-text">Prix Achat:</span> {{ selectedArticle.prixAchat }} DH</p>
+      <p><span class="bold-text">PVP:</span> {{ selectedArticle.pvp }} DH</p>
+      <p><span class="bold-text">Quantité En Stock:</span> {{ selectedArticle.qteEnStock }}</p>
+      <p><span class="bold-text">Quantité Commandée:</span> {{ selectedArticle.qteCommandee }}</p>
+      <p><span class="bold-text">Quantité Réservée:</span> {{ selectedArticle.qteReservee }}</p>
+      </div>
+  </div>
+</ng-template>
+
+<!-- Modal pour ajouter un article -->
+<ng-template #addModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Ajouter Article</h5>
+    <button type="button" class="close" aria-label="Close" (click)="closeAddModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Inclure le composant add-article ici -->
+    <app-add-article></app-add-article>
+  </div>
+</ng-template>

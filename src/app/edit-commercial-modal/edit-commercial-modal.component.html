@@ -1,0 +1,60 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Modfiier un Commercial</h2>
+    
+  </div>
+  <div class="modal-body">
+    <form #editCommercialForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" name="username" [(ngModel)]="commercial.username" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" [(ngModel)]="commercial.email" class="form-control" required email>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" [(ngModel)]="commercial.password" class="form-control" required>
+      </div>
+      <div class="form-group-image">
+        <label for="image">Image</label>
+        <input type="file" id="image" (change)="onFileSelected($event)" class="form-control">
+      </div>
+      <div class="form-group">
+        <label style="font-size: 16px;"><strong>Modifier les droits :</strong></label><br/>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="gestionDevis"
+            (change)="onDroitChange('Gestion Devis', $event)"
+            [checked]="commercial.droits.includes('Gestion Devis')"
+          />
+          <label for="gestionDevis">Gestion Des Devis</label>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="gestionProspect"
+            (change)="onDroitChange('Gestion Prospect', $event)"
+            [checked]="commercial.droits.includes('Gestion Prospect')"
+          />
+          <label for="gestionProspect">Gestion Des Prospect</label>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="visualisationStock"
+            (change)="onDroitChange('Visualisation du stock', $event)"
+            [checked]="commercial.droits.includes('Visualisation du stock')"
+          />
+          <label for="visualisationStock">Visualisation du stock</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!editCommercialForm.form.valid">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-snack-bar-container {
+    background-color: #a5529b;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.custom-dialog-container .mat-dialog-container {
+    padding: 0;
+    background: transparent;  /* Rendre le fond transparent */
+    box-shadow: none;  /* Supprimer l'ombre */
+    overflow: visible;  /* Autoriser le débordement */
+  }
+  
+  .custom-dialog-container .card {
+    margin: 0;  /* Supprimer les marges */
+  }
+  

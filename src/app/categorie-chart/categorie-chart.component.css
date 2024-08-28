@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  width: 100%;
+  padding: 20px;
+}
+
+.categorie-chart-container {
+  background-color: #fcf0fc; /* Couleur mauve clair pour le conteneur */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Arial, sans-serif';
+  font-weight: bold;
+}
+
+#categorie-chart {
+  width: 100%;
+  height: 400px;
+}
+
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 400px !important;
+  max-width: 600px; /* Limite la largeur du canvas */
+  margin: 0 auto;
+}

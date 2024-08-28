@@ -1,0 +1,50 @@
+<div class="container my-4">
+    <h2 class="text-center mb-4"></h2>
+
+    
+
+    <!-- Search bar -->
+    <div class="mb-3 search">
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" class="form-control" placeholder="Rechercher un assistant..." [(ngModel)]="searchText">
+        </div>
+    </div>
+    <br/>
+    <!-- Button to open the Add Assistant Modal -->
+    <div class="d-flex justify-content-center mb-3">
+        <div class="card add-assistant-card" (click)="openAddAssistantModal()">
+            <div class="card-body text-center">
+                <i class="fas fa-user-plus fa-2x"></i>
+                <h5 class="card-title mt-2">Ajouter un Assistant</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="assistant-list">
+        <table class="table table-bordered table-hover">
+            <thead class="table-light text-center">
+                <tr>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Nom d'utilisateur</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let assistant of filteredAssistants()" class="align-middle text-center">
+                    <td class="text-center">
+                        <img [src]="getImageData(assistant)" class="circular-image" alt="Assistant Image">
+                    </td>
+                    <td class="text-center">{{ assistant.username }}</td>
+                    <td class="text-center">{{ assistant.email }}</td>
+                    <td class="text-center">
+                        <i class="fas fa-edit action-icon me-2" (click)="openEditModal(assistant)" title="Modifier"></i>
+                        <br/><br/>
+                        <i class="fas fa-trash action-icon text-danger" (click)="deleteAssistant(assistant.id, assistant.username)" title="Supprimer"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

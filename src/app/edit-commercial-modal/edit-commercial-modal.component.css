@@ -1,0 +1,154 @@
+/* Styles pour le modal */
+.modal-content {
+    border-radius: 20px; /* Arrondi des coins */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+    background-color: #ede2ed; /* Mauve clair */
+    padding: 20px;
+    border: 1px solid #d8bfd8; /* Bordure mauve */
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .modal-header {
+    background-color: #d8bfd8; /* Mauve plus foncé */
+    color: white;
+    border-bottom: none;
+    padding: 10px;
+    border-radius: 20px 20px 0 0; /* Arrondi des côtés en haut */
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px; /* Ajout d'une marge pour éviter le contact direct avec les bords de l'écran */
+  }
+
+  .card-header {
+    background-color: #d8bfd8; /* Mauve plus foncé */
+    color: white;
+    border-bottom: none;
+    padding: 10px;
+    border-radius: 20px 20px 0 0; /* Arrondi des côtés en haut */
+    text-align: center;
+  }
+
+  
+  
+  
+  .close {
+    color: #888;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group-image {
+    margin-bottom: 25px;
+  }
+  
+  
+  .form-group label {
+    font-size: 14px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .form-control:focus {
+    border-color: #9370db; /* Mauve primaire */
+    box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+  }
+  
+  .modal-footer {
+    padding: 10px;
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+ 
+  
+  
+  
+  .btn-primary {
+    background-color: #9370db; /* Mauve primaire */
+    border-color: #9370db;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7a5bbf;
+    border-color: #7a5bbf;
+  }
+  
+  .is-invalid {
+    border-color: #dc3545;
+  }
+  
+  .text-danger {
+    color: #dc3545;
+  }
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Style de la case à cocher */
+  .checkbox-container input[type="checkbox"] {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #f1f1f1;
+    border: 2px solid #d3d3d3;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .checkbox-container input[type="checkbox"]:checked {
+    background-color: #4caf50; /* Vert pour les cases cochées */
+    border-color: #4caf50;
+  }
+  
+  .checkbox-container input[type="checkbox"]:checked::before {
+    content: '✓'; /* Symbole de la case cochée */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 14px;
+  }
+  
+  .checkbox-container label {
+    margin-left: 8px;
+    font-size: 16px;
+  }
+  

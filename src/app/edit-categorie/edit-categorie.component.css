@@ -1,0 +1,51 @@
+/* Styles pour la carte de modification de catégorie */
+.card {
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px; /* Ajout d'une marge pour éviter le contact direct avec les bords de l'écran */
+}
+
+.card-header {
+  background-color: #d8bfd8; /* Mauve plus foncé */
+  color: white;
+  border-bottom: none;
+  padding: 10px;
+  border-radius: 20px 20px 0 0; /* Arrondi des côtés en haut */
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  padding: 10px;
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: #9370db; /* Mauve primaire */
+  border-color: #9370db;
+}
+
+.btn-primary:hover {
+  background-color: #7a5bbf;
+  border-color: #7a5bbf;
+}
+
+.form-control:focus {
+  border-color: #9370db;
+  box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.text-danger {
+  color: #dc3545;
+}

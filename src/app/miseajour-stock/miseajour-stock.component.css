@@ -1,0 +1,89 @@
+.update-stock-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.update-stock-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+}
+
+.upload-section input[type="file"] {
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.upload-section input[type="file"]:hover {
+    border-color: #5c6bc0;
+    transform: scale(1.02);
+}
+
+.upload-section button {
+    background-color: #6c2293;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    font-size: 16px;
+}
+
+.upload-section button:disabled {
+    background-color: #928c8c;
+    cursor: not-allowed;
+}
+
+.upload-section button:not(:disabled):hover {
+    background-color: #5a187e;
+    transform: scale(1.05);
+}
+
+.success-message {
+    color: #388e3c;
+    background-color: #e8f5e9;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation pour un effet de fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

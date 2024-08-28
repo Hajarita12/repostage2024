@@ -1,0 +1,282 @@
+<style>
+  /* Styles pour le modal */
+  .card {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px; /* Ajout d'une marge pour éviter le contact direct avec les bords de l'écran */
+  }
+
+  .card-header {
+    background-color: #d8bfd8; /* Mauve plus foncé */
+    color: white;
+    border-bottom: none;
+    padding: 10px;
+    border-radius: 20px 20px 0 0; /* Arrondi des côtés en haut */
+    text-align: center;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+  .modal-footer {
+    padding: 10px;
+    border-top: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn-primary {
+    background-color: #9370db; /* Mauve primaire */
+    border-color: #9370db;
+  }
+
+  .btn-primary:hover {
+    background-color: #7a5bbf;
+    border-color: #7a5bbf;
+  }
+
+  .form-control:focus {
+    border-color: #9370db;
+    box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+  }
+
+  .is-invalid {
+    border-color: #dc3545;
+  }
+
+  .text-danger {
+    color: #dc3545;
+  }
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px; /* Ajustez la largeur maximale pour correspondre à la carte du commercial */
+  text-align: center;
+}
+
+.modal-header {
+  background-color: #d8bfd8; /* Mauve plus foncé */
+  color: white;
+  border-bottom: none;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+}
+
+.modal-footer {
+  padding: 10px;
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #9370db; /* Mauve primaire */
+  border-color: #9370db;
+}
+
+.btn-primary:hover {
+  background-color: #7a5bbf;
+  border-color: #7a5bbf;
+}
+
+.form-control:focus {
+  border-color: #9370db;
+  box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+  /* Styles de base pour les cases à cocher */
+  .checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Style de la case à cocher */
+.checkbox-container input[type="checkbox"] {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #f1f1f1;
+  border: 2px solid #d3d3d3;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+  background-color: #4caf50; /* Vert pour les cases cochées */
+  border-color: #4caf50;
+}
+
+.checkbox-container input[type="checkbox"]:checked::before {
+  content: '✓'; /* Symbole de la case cochée */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 14px;
+}
+
+.checkbox-container label {
+  margin-left: 8px;
+  font-size: 16px;
+}
+</style>
+<!-- Carte d'ajout d'assistant -->
+<div class="card">
+    <div class="card-header">
+      <h2>Ajouter un Assistant ADV</h2>
+    </div>
+    <div class="modal-body">
+      <!-- Affichage de l'erreur -->
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #assistantForm="ngForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            required
+            [(ngModel)]="assistant.email"
+            name="email"
+            #email="ngModel"
+            [ngClass]="{ 'is-invalid': email.invalid && email.touched && showErrorMessages }"
+          />
+          <div *ngIf="email.invalid && email.touched && showErrorMessages" class="text-danger">
+            Email est requis.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            required
+            [(ngModel)]="assistant.username"
+            name="username"
+            #username="ngModel"
+            [ngClass]="{ 'is-invalid': username.invalid && username.touched && showErrorMessages }"
+          />
+          <div *ngIf="username.invalid && username.touched && showErrorMessages" class="text-danger">
+            Nom d'utilisateur est requis.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            required
+            [(ngModel)]="assistant.password"
+            name="password"
+            #password="ngModel"
+            [ngClass]="{ 'is-invalid': password.invalid && password.touched && showErrorMessages }"
+          />
+          <div *ngIf="password.invalid && password.touched && showErrorMessages" class="text-danger">
+            Mot de passe est requis.
+          </div>
+        </div>
+        <div class="form-group">
+          <label style="font-size: 16px;"><strong>Choisir les droits :</strong></label><br/>
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="gestionDevis"
+              (change)="onDroitChange('Gestion et Validation Des Devis', $event)"
+            />
+            <label for="gestionDevis">Gestion et Validation Des Devis</label>
+          </div>
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="gestionProspect"
+              (change)="onDroitChange('Gestion et Validation Des Prospects', $event)"
+            />
+            <label for="gestionProspect">Gestion et Validation Des Prospects</label>
+          </div>
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="gestionStock"
+              (change)="onDroitChange('Gestion du stock', $event)"
+            />
+            <label for="gestionStock">Gestion du stock(Catégories et Articles)</label>
+          </div>
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="miseajourStock"
+              (change)="onDroitChange('Mise à jour du stock', $event)"
+            />
+            <label for="miseajourStock">Mise à jour du stock</label>
+          </div>
+        </div>
+        
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="assistantForm.invalid"
+          >
+            Ajouter
+          </button>
+        </div>
+      </form>
+    </div>
+</div>

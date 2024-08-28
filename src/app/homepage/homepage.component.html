@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoCom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <style>
+    /* Styles supplémentaires pour le slider */
+    
+    .mic-slider img {
+      width: 100%;
+      height: auto;
+    }
+    .mic-slider {
+      width: 80%;
+      margin: auto;
+    }
+    /* Styles de base pour le slider */
+    .container-slider-marque{
+      justify-content: center;
+      display: flex;
+
+    }
+    .slider-marque img {
+      width: 100%;
+      height: auto;
+    }
+    .slider-marque {
+      width: 80%;
+      margin: auto;
+    }
+    .slider {
+      width: 80%;
+      margin: auto;
+    }
+    .slider img {
+      width: 100%;
+      height: auto;
+    }
+    .gaming-slider {
+      width: 80%;
+      margin: auto;
+    }
+    .gaming-slider img {
+      width: 100%;
+      height: auto;
+    }
+    .tab-slider {
+      width: 80%;
+      margin: auto;
+    }
+    .tab-slider img {
+      width: 100%;
+      height: auto;
+    }
+    .accessoires-slider {
+      width: 80%;
+      margin: auto;
+    }
+    .accessoires-slider img {
+      width: 100%;
+      height: auto;
+    }
+    .ecouteurs-slider {
+      width: 80%;
+      margin: auto;
+    }
+    .ecouteurs-slider img {
+      width: 100%;
+      height: auto;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+    .goblack .image-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust the gap between images as needed */
+}
+
+.goblack .image-container img {
+  width: 200px; /* Adjust the size of the images as needed */
+  height: 250px; /* Ensure the height is equal to the width to make them circular */
+  object-fit: cover; /* Ensure the image covers the entire circle */
+  border-radius: 50%; /* Make the image circular */
+}
+
+/* Styles pour les flèches de navigation si nécessaire */
+.slick-prev, .slick-next {
+  z-index: 1; /* Assure que les boutons de navigation sont visibles */
+}
+/* Style du menu déroulant des notifications */
+.dropdown-menu {
+    display: none;
+    position: absolute; /* Assurez-vous que la position est absolute pour pouvoir utiliser left et transform */
+    top: 60px; /* Positionne le menu en dessous de l'icône de notification */
+    left: 78%; /* Positionne le menu au centre horizontalement */
+    transform: translateX(-80%); /* Centre le menu en fonction de sa largeur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+    background-color: #c298c9;
+
+    overflow: hidden;
+    z-index: 1000;
+    width: 200px; /* Largeur du menu déroulant */
+}
+
+
+.dropdown-menu p {
+    margin: 0;
+    padding: 10px 20px;
+    color: black;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu p:last-child {
+    border-bottom: none; /* Enlève la bordure du dernier élément */
+}
+
+.dropdown-menu .no-notification {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    padding: 20px;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+.dropdown-menu a:hover {
+  display: block;
+  padding: 10px 15px;
+  color: #3d033e;
+  background-color: #bc95d0;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s ease;
+}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  
+</head>
+<body>
+  <section id="one">
+    <nav id="nav">
+      <div class="nav-logo">
+        <div class="nav-heading">
+          <span><i class="fas fa-mobile-alt logo white"></i>GoCom</span>
+        </div>
+        <div class="hamburger">
+          <a href="#"><i class="far fa-moon white"></i></a>
+          <a href="#"><i class="fas fa-bars"></i></a>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#one">Accueil</a></li>
+        <li><a href="#one-half">À Propos</a></li>
+        <li><a href="#two">Produits</a></li>
+        <li><a href="#three">Services</a></li>
+        <li><a href="#four">Marques</a></li>
+        <li><a href="#" (click)="toggleDropdown($event)" >Nos Espaces <i class="fas fa-chevron-down"></i></a></li>
+        <div class="dropdown-menu" #dropdownMenu >
+          <a href="/admin" >Espace Admin</a>
+          <a href="/login-assistant" >Espace Assistant ADV</a>
+          <a href="/login-commercial" >Espace Commercial</a>
+
+        </div>
+        <div class="search-section">
+          <span class="search">
+            <input type="search" placeholder="Rechercher des produits...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+          </span>
+        </div>
+        <span><i class="far fa-moon white night"></i></span>
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="text-content">
+        <h1 class="white">Bienvenue sur <strong>GoCom!</strong></h1>
+        <h4 class="blackish">Votre boutique unique pour les dernières innovations en technologie.</h4>
+        <div class="two-button">
+          <a class="w-btn btn" href="#two">Découvrez Nos Produits</a>
+          <button class="t-btn btn">Contactez-Nous</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="one-half" class="goblack">
+    <div class="image-container">
+      <span>
+        <img src="https://www.crfpe.fr/wp-content/uploads/2020/10/AdobeStock_261258321-scaled.jpeg" alt="Tech Products 1">
+      </span>
+      <span>
+        <img src="https://www.urvika.com/wp-content/uploads/2020/08/15628-768x513.jpg" alt="Tech Products 2">
+      </span>
+    </div>
+    <div class="half-content">
+      <div class="half__text">
+        <h1>À Propos</h1>
+        <p>Chez GoCom, nous nous spécialisons dans la distribution de produits technologiques haut de gamme provenant de marques renommées telles qu'Apple, Samsung et Shure. Notre mission est de vous apporter les dernières innovations en matière de smartphones, tablettes, équipements de jeu et plus encore.</p>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="half__boxes">
+        <div class="box">
+          <span><i class="fas fa-bullseye logo"></i></span>
+          <h2>Notre Mission</h2>
+          <p>Fournir des produits technologiques exceptionnels qui améliorent votre quotidien et répondent aux normes les plus élevées de qualité et d'innovation.</p>
+        </div>
+        <div class="box">
+          <span><i class="fas fa-rocket logo"></i></span>
+          <h2>Notre Vision</h2>
+          <p>Être le distributeur leader de la technologie de pointe, en rendant les derniers gadgets accessibles et abordables pour tout le monde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <section id="two">
+    <div class="heading">
+      <h1>Nos Produits</h1>
+      <p class="lightblack">Découvrez notre gamme diversifiée de produits technologiques, des smartphones aux accessoires de jeu, conçus pour répondre à tous vos besoins en matière de technologie.</p>
+    </div>
+    <div class="container">
+      <div class="info">
+        <div class="slider">
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/01/n-africa-galaxy-a05s-sm-a057-sm-a057fzkgmwd-539130360-1200x1038.png" alt="Smartphones 1"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/01/1-1200x1038.png" alt="Smartphones 2"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/n-africa-galaxy-a04-sm-a045-sm-a045fzcgmwd-534034244-1200x1038.png" alt="Smartphones 3"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/02/iphone_15_black_pdp_image_position-1__en-me_9-jpg.webp" alt="Smartphones 4"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/02/iphone_15_pink_pdp_image_position-1__en-me_1_4-jpg.webp" alt="Smartphones 5"></div>
+        </div>
+        <div class="info__text">
+          <h1>Smartphones</h1>
+          <p>Explorez notre sélection des derniers smartphones des meilleures marques comme Apple et Samsung.</p>
+        </div>
+      </div>
+      
+      <div class="info">
+        <div class="gaming-slider">
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/n-africa-galaxy-tab-a9-sm-x115-sm-x115nzsamwd-538660165.png" alt="Tablette 1"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/n-africa-galaxy-tab-a9-sm-x115-sm-x115ndbamwd-538660098-1200x1200.png" alt="Tablette 2"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/02/n-africa-galaxy-a7-lite-t225-391561-sm-t225nzawmwd-457241003.png" alt="Tablette 3"></div>
+        </div>        
+        <div class="info__text">
+          <h1>Tablettes</h1>
+          <p>Trouvez la tablette parfaite pour le travail ou le divertissement, avec une technologie de pointe et un design élégant.</p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="tab-slider">
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/71r5EDssKdL._AC_SX679_-jpg.webp" alt="Tablette 1"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/siege-gaming-konix-drakkar-thor.webp" alt="Tablette 2"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/gu946265_6-jpg.webp" alt="Tablette 3"></div>
+        </div>            
+        <div class="info__text">
+          <h1>Équipements de Jeu</h1>
+          <p>Obtenez la meilleure expérience de jeu avec notre gamme d'accessoires et d'équipements de jeu pour les gamers passionnés.</p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="mic-slider">
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/75ac865e55ca2bfc9550d4bbbc4597b5-scaled-1200x1200.webp" alt="Mic 1"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/05/fe48125157f3ebad71f5a9f57a1aeceb-1200x1200.jpg" alt="Mic 2"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/03/9d3d409a77477acd4ec290b0c05164e1-jpg.webp" alt="Mic 3"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/bbddf9f9dd8fdd2c697884899bb34b5a-jpg.webp" alt="Mic 4"></div>
+
+        </div>          
+        <div class="info__text">
+          <h1>Microphones</h1>
+          <p>Découvrez notre collection de microphones professionnels pour une qualité sonore exceptionnelle, que ce soit pour le streaming, les enregistrements ou les présentations.</p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="accessoires-slider">
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/fr-galaxy-s23-plus-frame-case-ef-ms916-ef-ms916cbegww-534929819-jpg.webp" alt="Accessoire 1"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/fr-galaxy-s23-silicone-case-ef-ps911-ef-ps911toegww-534902942-jpg.webp" alt="Accessoire 2"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/fr-galaxy-s23-silicone-case-ef-ps911-ef-ps911tvegww-534902956-jpg.webp" alt="Accessoire 3"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/fr-galaxy-s23-plus-silicone-grip-case-ef-gs916-ef-gs916tbegww-534929945-jpg.webp" alt="Accessoire 4"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/fr-galaxy-z-flip5-silicone-case-with-ring-ef-pf731-ef-pf731tnegww-537418602.webp" alt="Accessoire 5"></div>
+
+
+        </div>          
+        <div class="info__text">
+          <h1>Accessoires</h1>
+          <p>Complétez votre expérience mobile avec notre sélection d'accessoires de téléphonie, incluant des étuis, des chargeurs et plus encore.</p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="ecouteurs-slider">
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/6a0a80d37bb4e3febc14d317cf536e24-2-1536x1536.webp" alt="ecouteurs 1"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/africa-fr-galaxy-buds-live-r180-sm-r180nzkamea-500362435-jpg.webp" alt="ecouteurs 2"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/12/n-africa-galaxy-buds-fe-sm-r400nzaamea-538475688-jpg-1200x1038.webp" alt="ecouteurs 3"></div>
+        </div>       
+         <div class="info__text">
+          <h1>Écouteurs</h1>
+          <p>Profitez de votre musique avec des écouteurs de haute qualité offrant un son immersif et un confort optimal pour une utilisation quotidienne.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="three">
+    <div class="heading">
+      <h1>Nos Services</h1>
+      <p class="lightblack">Découvrez notre gamme diversifiée de services conçus pour répondre à tous vos besoins en matière de technologie.</p>
+    </div>
+    <div class="container">
+      <div class="info">
+        <span><i class="fas fa-shipping-fast logo"></i></span>
+        <div class="info__text">
+          <h1>Livraison Rapide</h1>
+          <p>Nous proposons des options de livraison rapide pour que vous puissiez recevoir vos produits en un rien de temps.</p>
+        </div>
+      </div>
+      <div class="info">
+        <span><i class="fas fa-cogs logo"></i></span>
+        <div class="info__text">
+          <h1>Support Technique</h1>
+          <p>Notre équipe de support technique est disponible pour vous aider avec tous vos problèmes techniques.</p>
+        </div>
+      </div>
+      <div class="info">
+        <span><i class="fas fa-undo logo"></i></span>
+        <div class="info__text">
+          <h1>Retours Faciles</h1>
+          <p>Profitez de notre politique de retours faciles pour une expérience d'achat sans souci.</p>
+        </div>
+      </div>
+      <div class="info">
+        <span><i class="fas fa-shield-alt logo"></i></span>
+        <div class="info__text">
+          <h1>Garantie de Sécurité</h1>
+          <p>Nous garantissons la sécurité de vos achats et de vos données personnelles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="four">
+    <div class="heading">
+      <h1>Nos Marques</h1>
+      <p class="lightblack">
+        Nous sommes fiers de collaborer avec des marques prestigieuses qui incarnent l'innovation et l'excellence. Notre sélection de partenaires reflète notre engagement à offrir des produits de la plus haute qualité et à répondre aux attentes les plus exigeantes de nos clients. Découvrez ci-dessous les marques qui enrichissent notre offre avec leur savoir-faire unique et leur réputation mondiale.      </p>
+    </div>
+    <div class="container-slider-marque">
+      <div class="info">
+        <div class="slider-marque">
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/10/logo-samsung-1536x310.png" alt="Smartphones 1"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2024/03/5a36c9c1e829f1.389550861513540033951-1536x1152.png" alt="Smartphones 2"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/10/Shure_Logo-1536x366.png" alt="Smartphones 3"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/10/Sony-logo-1536x864.png" alt="Smartphones 4"></div>
+          <div><img src="https://supermedia.ma/wp-content/uploads/2023/10/logo-nintendo.png" alt="Smartphones 5"></div>
+      
+        </div>
+        
+      </div>
+  </div>
+  </section>
+  <footer style="background-color: #311041; color: #ffffff; padding: 20px; font-family: Arial, sans-serif;">
+    <div style="display: flex; align-items: center; justify-content: center; position: relative; max-width: 1200px; margin: 0 auto;">
+        
+        <!-- Logo Section -->
+        <div style="position: absolute; left: 20px;">
+            <img src="assets/logogocom-removebg-preview (1).png" alt="Gocom Logo" style="width: 150px; height: auto;">
+        </div>
+
+        <!-- Footer Content Section -->
+        <div style="text-align: center; flex: 1; padding-left: 180px; padding-right: 180px;">
+            <h2 style="margin-bottom: 10px;">Gocom</h2>
+            <p style="margin: 5px 0;">Entreprise de Distribution Agréée</p>
+            <p style="margin: 5px 0;">Téléphone : 0529002367</p>
+            <p style="margin: 5px 0;">Fax : 0522583199</p>
+            <p style="margin: 5px 0;">Adresse : 331, Lotisement LINA (SIDI MAAROUF), Casablanca 20520</p>
+            <a href="https://www.google.fr/maps/place/Gocom/@33.5194261,-7.6556694,17z/data=!3m1!4b1!4m6!3m5!1s0xda62d011472821b:0x5e84ab829cd70766!8m2!3d33.5194217!4d-7.651056!16s%2Fg%2F11b7h9h2yv?entry=ttu" 
+               style="color: #ffffff; text-decoration: none; font-weight: bold;"></a>
+        </div>
+
+        <!-- Map Section -->
+        <div style="position: absolute; right: 5px;">
+            <a href="https://www.google.fr/maps/place/Gocom/@33.5194261,-7.6556694,17z/data=!3m1!4b1!4m6!3m5!1s0xda62d011472821b:0x5e84ab829cd70766!8m2!3d33.5194217!4d-7.651056!16s%2Fg%2F11b7h9h2yv?entry=ttu" target="_blank">
+                <img src="assets/map2-removebg-preview.png" 
+                     alt="Gocom Location" style="border: 0; width: 250px; height: 150px;">
+            </a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+</body>
+</html>

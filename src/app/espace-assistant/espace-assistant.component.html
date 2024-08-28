@@ -1,0 +1,84 @@
+<div class="assistant-container">
+  <h2>Liste des Prospects</h2>
+  <div class="search-container">
+    <i class="fas fa-search search-icon"></i>
+    <input 
+      type="text" 
+      placeholder="Rechercher un prospect..." 
+      class="search-input" 
+      [(ngModel)]="searchTerm" 
+      (input)="filterProspects()"
+    />
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Téléphone</th>
+        <th>Email</th>
+        <th>Identifiant Client</th>
+        <th>État</th>
+        <th>Modification de l'État</th>
+        <th>Actions</th>
+        <th>Commercial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prospect of filteredProspects">
+        <td>{{ prospect.name }}</td>
+        <td>{{ prospect.adresse }}</td>
+        <td>{{ prospect.phone }}</td>
+        <td>{{ prospect.email }}</td>
+        <td>{{ prospect.identifiantClient }}</td>
+        <td>
+          <span *ngIf="prospect.etat === 'En attente'">
+            <i class="fa fa-toggle-off text-muted"></i> En attente
+          </span>
+          <span *ngIf="prospect.etat === 'Validé'">
+            <i class="fa fa-toggle-on text-success"></i> Validé
+          </span>
+          <span *ngIf="prospect.etat === 'Annulé'">
+            <i class="fa fa-toggle-off text-danger"></i> Annulé
+          </span>
+        </td>
+        <td>
+          <div class="toggle-buttons">
+            <div>
+              <span class="state-label">En attente</span>
+              <button class="toggle-button"
+                      [class.active]="prospect.etat === 'En attente'"
+                      (click)="toggleButton(prospect, 'En attente')">
+              </button>
+            </div>
+            <div>
+              <span class="state-label">Validé</span>
+              <button class="toggle-button"
+                      [class.active]="prospect.etat === 'Validé'"
+                      (click)="toggleButton(prospect, 'Validé')">
+              </button>
+            </div>
+            <div>
+              <span class="state-label">Annulé</span>
+              <button class="toggle-button"
+                      [class.active]="prospect.etat === 'Annulé'"
+                      (click)="toggleButton(prospect, 'Annulé')">
+              </button>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="d-flex flex-column align-items-center">
+            <ng-container *ngIf="prospect.etat === 'Validé' || prospect.etat === 'Annulé'">
+              <i class="fa fa-pencil action-icon-edit mb-1" aria-hidden="true" (click)="editProspect(prospect)" title="Modifier"></i>
+              <span class="action-label mb-1"></span>
+              <i class="fas fa-trash action-icon-delete mt-1" aria-hidden="true" (click)="deleteProspect(prospect.id)" title="Supprimer"></i>
+              <span class="action-label mt-1"></span>
+            </ng-container>
+          </div>
+        </td>
+        <td>{{ prospect.commercial.username }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

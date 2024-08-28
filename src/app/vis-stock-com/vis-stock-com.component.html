@@ -1,0 +1,37 @@
+<div class="crud-container">
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input 
+        type="text" 
+        placeholder="Rechercher un article..." 
+        class="search-input" 
+        [(ngModel)]="searchText" 
+      />
+    </div>
+    
+   
+    
+    <br/>
+  
+    <div class="card-container">
+      <div class="card" *ngFor="let article of filteredArticles">
+        <span class="card-title">{{ article.designation }}</span>
+        <img [src]="getImageData(article)" class="circular-image" alt="{{article.designation}}">
+        <div class="card-content">
+          <br/>
+          <p class="card-text"><strong>Catégorie: </strong> {{ article.categorie.name }}</p>
+          <p class="card-text"><strong>Quantité En Stock: </strong>{{ article.qteEnStock }}</p>
+          <p class="card-text"><strong>Quantité Réservée: </strong>{{ article.qteReservee }}</p>
+          <p class="card-text"><strong>Prix Unitaire: </strong>{{ article.prixUnitaire }}</p>
+
+        
+          <br/>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+  
+ 

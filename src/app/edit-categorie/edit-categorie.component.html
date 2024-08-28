@@ -1,0 +1,41 @@
+<!-- Carte de modification de catégorie -->
+<div class="card">
+  <div class="card-header">
+    <h2>Modifier une Catégorie</h2>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSave()" #categorieForm="ngForm">
+      <div class="form-group">
+        <label for="categorie-name">Nom de la catégorie</label>
+        <input
+          type="text"
+          id="categorie-name"
+          class="form-control"
+          required
+          [(ngModel)]="categorie.name"
+          name="name"
+          #name="ngModel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input
+          type="file"
+          id="image"
+          (change)="onFileSelected($event)"
+          class="form-control"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="categorieForm.invalid"
+        >
+          Sauvegarder
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

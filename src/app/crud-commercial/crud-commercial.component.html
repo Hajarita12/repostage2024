@@ -1,0 +1,48 @@
+<div class="container my-4">
+
+    <!-- Button to open the Add Commercial Modal -->
+   
+
+    <!-- Search bar -->
+    <div class="mb-3 search">
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input type="text" class="form-control" placeholder="Rechercher un commercial..." [(ngModel)]="searchText">
+        </div>
+    </div>
+    <br/>
+    <div class="d-flex justify-content-center mb-3">
+        <div class="card add-commercial-card" (click)="openAddCommercialModal()">
+            <div class="card-body text-center">
+                <i class="fas fa-user-plus fa-2x"></i>
+                <h5 class="card-title mt-2">Ajouter un Commercial</h5>
+            </div>
+        </div>
+    </div>
+    <div class="commercial-list">
+        <table class="table table-bordered table-hover">
+            <thead class="table-light text-center">
+                <tr>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Nom d'utilisateur</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let commercial of filteredCommercials()" class="align-middle text-center">
+                    <td class="text-center">
+                        <img [src]="getImageData(commercial)" class="circular-image" alt="Commercial Image">
+                    </td>
+                    <td class="text-center">{{ commercial.username }}</td>
+                    <td class="text-center">{{ commercial.email }}</td>
+                    <td class="text-center">
+                        <i class="fas fa-edit action-icon  me-2" (click)="openEditModal(commercial)" title="Modifier"></i>
+                        <br/><br/>
+                        <i class="fas fa-trash action-icon text-danger" (click)="deleteCommercial(commercial.id, commercial.username)" title="Supprimer"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

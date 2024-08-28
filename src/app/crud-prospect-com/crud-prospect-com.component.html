@@ -1,0 +1,68 @@
+<div class="container my-4">
+
+ 
+
+  
+
+  <!-- Filter by state -->
+  <div class="form-group">
+      <label for="etatFilter"><strong>Filtrer par état:</strong></label>
+      <select id="etatFilter" class="form-control" [(ngModel)]="selectedEtat" (change)="filterProspects()">
+          <option value="">Tous</option>
+          <option value="Validé">Validé</option>
+          <option value="En attente">En attente</option>
+          <option value="Annulé">Annulé</option>
+      </select>
+  </div>
+ <!-- Button to open the Add Prospect Modal -->
+  <br/>
+ <div class="d-flex justify-content-center mb-3">
+  <div class="card add-prospect-card" (click)="openAddProspectModal()">
+      <div class="card-body text-center">
+          <i class="fas fa-user-plus fa-2x"></i>
+          <h5 class="card-title mt-2">Ajouter un Prospect</h5>
+      </div>
+  </div>
+</div>
+  <div class="prospect-list mt-3">
+      <table class="table table-bordered table-hover">
+          <thead class="table-light text-center">
+              <tr>
+                  <th class="text-center">Nom du Client</th>
+                  <th class="text-center">État</th>
+                  <th class="text-center">Email</th>
+                  <th class="text-center">Adresse</th>
+                  <th class="text-center">Téléphone</th>
+                  <th class="text-center">Identifiant Client</th>
+                  <th class="text-center">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let prospect of filteredProspects"
+                  [ngClass]="{
+                      'prospect-annule': prospect.etat === 'Annulé',
+                      'prospect-valide': prospect.etat === 'Validé',
+                      'inactive-row': isProspectInactive(prospect)
+                  }"
+                  (mouseenter)="showNotification(prospect)"
+                  (click)="showNotification(prospect)">
+                  <td class="text-center">{{ prospect.name }}</td>
+                  <td class="text-center">{{ prospect.etat }}</td>
+                  <td class="text-center">{{ prospect.email }}</td>
+                  <td class="text-center">{{ prospect.adresse }}</td>
+                  <td class="text-center">{{ prospect.phone }}</td>
+                  <td class="text-center">{{ prospect.identifiantClient }}</td>
+                  <td class="text-center">
+                      <i class="fas fa-edit action-icon  me-2" (click)="openEditModal(prospect)" title="Modifier"></i>
+                      <br/><br/>
+                      <i class="fas fa-trash action-icon text-danger" (click)="deleteProspect(prospect.id)" title="Supprimer"></i>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+
+  <div *ngIf="filteredProspects.length === 0" class="alert alert-info mt-4">
+      Aucun prospect trouvé.
+  </div>
+</div>

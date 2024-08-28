@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h2 class="modal-title">
+      <i class="fas fa-exclamation-triangle "></i> Confirmation de Suppression
+  </h2>
+</div>
+<div class="modal-body">
+  <p>Êtes-vous sûr de vouloir supprimer la catégorie "{{ data.categorieName }}" ? </p>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-secondary" (click)="onCancel()">
+      <i class="fas fa-times"></i> 
+  </button>
+  <button class="btn btn-danger" (click)="onConfirm()">
+      <i class="fas fa-trash-alt"></i> 
+  </button>
+</div>

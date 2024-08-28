@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-header">
+      <h2>Modifier un Prospect</h2>
+    </div>
+    <div class="modal-body">
+      <form #editProspectForm="ngForm" (ngSubmit)="saveChanges()">
+        <div class="form-group">
+          <label for="name">Nom du Client</label>
+          <input type="text" id="name" name="name" [(ngModel)]="data.prospect.name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" [(ngModel)]="data.prospect.email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input type="text" id="adresse" name="adresse" [(ngModel)]="data.prospect.adresse" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="phone" [(ngModel)]="data.prospect.phone" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="identifiantClient">Identifiant du Client</label>
+          <input type="text" id="identifiantClient" name="identifiantClient" [(ngModel)]="data.prospect.identifiantClient" class="form-control" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!editProspectForm.form.valid">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

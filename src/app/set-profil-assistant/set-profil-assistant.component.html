@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Modifier Profil</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Nom d'utilisateur</label>
+      <input type="text" id="username" [(ngModel)]="assistant.username" name="username" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" [(ngModel)]="assistant.password" name="password" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="assistant.email" name="email" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" id="image" (change)="onFileSelected($event)" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+  </form>
+</div>
